@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package employee;
+
+service EmployeeService {
+  rpc CreateEmployee (Employee) returns (Employee);
+  rpc GetEmployee (EmployeeById) returns (Employee);
+  rpc GetAllEmployees (Empty) returns (Employees);
+  rpc UpdateEmployee (Employee) returns (Employee);
+  rpc DeleteEmployee (EmployeeById) returns (Empty);
+}
+
+message Employee {
+  int32 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string department = 4;
+  string address = 5;
+  string phone_number = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+  google.protobuf.Timestamp deleted_at = 9;
+}
+
+message EmployeeById {
+  int32 id = 1;
+}
+
+message Employees {
+  repeated Employee employees = 1;
+}
+
+message Empty {}
