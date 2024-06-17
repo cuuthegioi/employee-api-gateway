@@ -1,0 +1,31 @@
+{
+  "name": "employee-api-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuuthegioi/employee-api-gateway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuuthegioi/employee-api-gateway/issues"
+  },
+  "homepage": "https://github.com/cuuthegioi/employee-api-gateway#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.9",
+    "@grpc/proto-loader": "^0.7.13",
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.19.2",
+    "graphql": "^16.8.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
