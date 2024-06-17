@@ -6,12 +6,13 @@ import {
   EmployeeById,
   Employees,
 } from './interfaces/employee.interface';
+import { EmployeeInput } from './inputs/employee.input';
 
 interface EmployeeServiceGrpc {
-  createEmployee(data: Employee): Observable<Employee>;
+  createEmployee(data: EmployeeInput): Observable<Employee>;
   getEmployee(data: EmployeeById): Observable<Employee>;
   getAllEmployees(data: object): Observable<Employees>;
-  updateEmployee(data: Employee): Observable<Employee>;
+  updateEmployee(data: EmployeeInput): Observable<Employee>;
   deleteEmployee(data: EmployeeById): Observable<void>;
 }
 
@@ -26,7 +27,7 @@ export class EmployeeService {
       this.client.getService<EmployeeServiceGrpc>('EmployeeService');
   }
 
-  createEmployee(data: Employee): Observable<Employee> {
+  createEmployee(data: EmployeeInput): Observable<Employee> {
     return this.employeeServiceGrpc.createEmployee(data);
   }
 
@@ -38,7 +39,7 @@ export class EmployeeService {
     return this.employeeServiceGrpc.getAllEmployees({});
   }
 
-  updateEmployee(data: Employee): Observable<Employee> {
+  updateEmployee(data: EmployeeInput): Observable<Employee> {
     return this.employeeServiceGrpc.updateEmployee(data);
   }
 

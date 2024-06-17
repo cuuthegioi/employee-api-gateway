@@ -10,30 +10,28 @@ export class EmployeeResolver {
 
   @Query(() => [EmployeeType])
   async employees() {
-    const { employees } = await this.employeeService
-      .getAllEmployees()
-      .toPromise();
+    const employees = await this.employeeService.getAllEmployees();
     return employees;
   }
 
   @Query(() => EmployeeType)
   async employee(@Args('id') id: number) {
-    return this.employeeService.getEmployee({ id }).toPromise();
+    return await this.employeeService.getEmployee({ id });
   }
 
   @Mutation(() => EmployeeType)
   async createEmployee(@Args('input') input: EmployeeInput) {
-    return this.employeeService.createEmployee(input).toPromise();
+    return await this.employeeService.createEmployee(input);
   }
 
   @Mutation(() => EmployeeType)
   async updateEmployee(@Args('input') input: EmployeeInput) {
-    return this.employeeService.updateEmployee(input).toPromise();
+    return await this.employeeService.updateEmployee(input);
   }
 
   @Mutation(() => Boolean)
   async deleteEmployee(@Args('id') id: number) {
-    await this.employeeService.deleteEmployee({ id }).toPromise();
+    await this.employeeService.deleteEmployee({ id });
     return true;
   }
 }
