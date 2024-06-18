@@ -12,7 +12,9 @@ import { EmployeeResolver } from './employee.resolver';
         name: 'EMPLOYEE_PACKAGE',
         transport: Transport.GRPC,
         options: {
-          url: 'localhost:5000',
+          url:
+            process.env.EMPLOYEE_BE ||
+            'https://employee-be-e7c2e621fdbe.herokuapp.com/',
           package: 'employee',
           protoPath: join(__dirname, '../employee.proto'),
         },
